@@ -31,21 +31,30 @@ def test_suite():
     test(day_name(day_num("Thursday")) == "Thursday")
     test(day_num("Halloween") == None)
     
+    print("\nday_add")
+    test(day_add("Monday", 4) ==  "Friday")
+    test(day_add("Tuesday", 0) == "Tuesday")
+    test(day_add("Tuesday", 14) == "Tuesday")
+    test(day_add("Sunday", 100) == "Tuesday")
+    test(day_add("Sunday", -1) == "Saturday")
+    test(day_add("Sunday", -7) == "Sunday")
+    test(day_add("Tuesday", -100) == "Sunday")
     
-
-def turn_clockwise(dir):
-    if dir == "N":
+    
+def turn_clockwise(direction):
+    """takes a compass point and return the next clockwise point"""
+    if direction == "N":
         return "E"
-    elif dir == "E":
+    elif direction == "E":
         return "S"
-    elif dir == "S":
+    elif direction == "S":
         return "W"
-    elif dir == "W":
+    elif direction == "W":
         return "N"
    
-    
 
 def day_name(num):
+    """takes a day number 0-6 and return the name"""
     if num == 0:
         return "Sunday"
     if num == 1:
@@ -64,6 +73,7 @@ def day_name(num):
         return None
 
 def day_num(day_name):
+    """takes a day name and returns a number 0-6"""
     if day_name == "Sunday":
         return 0
     elif day_name ==  "Monday":
@@ -80,7 +90,13 @@ def day_num(day_name):
         return 6
    
 
-
+def day_add(name,delta):
+    """takes in a day name and a number of days (delta). Adds the delta - returns name of the day."""
+    start_day_num = day_num(name)
+    end_day_num = start_day_num + delta
+    end_day_name = day_name(end_day_num % 7)
+    return end_day_name
+    
     
   
 test_suite()        # Here is the call to run the tests
