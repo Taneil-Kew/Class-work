@@ -59,13 +59,31 @@ def test_suite():
     test(hours_in(9010) == 2)
     
     print("\nminutes_in")
-    #test(minutes_in(9010) == 30)
+    test(minutes_in(9010) == 30)
     
     print("\nseconds_in")
-    #test(seconds_in(9010) == 10)
+    test(seconds_in(9010) == 10)
+    
+    
+def seconds_in(num):
+    """the left over seconds represented by a total number of seconds"""
+    hours_out = hours_in(num)
+    minutes_left = minutes_in(num)
+    return num - hours_out*3600 - minutes_left*60 
+    
 
+   
+def minutes_in(num):
+    """returns the whole integer number of left over minutes in a total
+    number of seconds, once the hours have been taken out"""
+    total_mins = math.floor(num/60)
+    hours_out = hours_in(num)
+    return total_mins - hours_out*60
+
+    
 def hours_in(num):
-    """returns the whole integer number of hours represented by a total number of seconds."""
+    """returns the whole integer number of hours represented by a total
+    number of seconds."""
     return  math.floor(num/3600)
     
 def to_secs(hours,minutes,seconds):
