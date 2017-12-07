@@ -1,4 +1,5 @@
 import sys
+import math
 
 def test(did_pass):
     """  Print the result of a test.  """
@@ -43,6 +44,35 @@ def test_suite():
     print("\ndays_in_month")
     test(days_in_month("February") == 28)
     test(days_in_month("December") == 31)
+    test(days_in_month("April") == 30)
+    
+    print("\nto_secs")
+    test(to_secs(2, 30, 10) == 9010)
+    test(to_secs(2, 0, 0) == 7200)
+    test(to_secs(0, 2, 0) == 120)
+    test(to_secs(0, 0, 42) == 42)
+    test(to_secs(0, -10, 10) == -590)
+    test(to_secs(2.5, 0, 10.71) == 9010)
+    test(to_secs(2.433,0,0) == 8758)
+    
+    print("\nhours_in")
+    test(hours_in(9010) == 2)
+    
+    print("\nminutes_in")
+    #test(minutes_in(9010) == 30)
+    
+    print("\nseconds_in")
+    #test(seconds_in(9010) == 10)
+
+def hours_in(num):
+    """returns the whole integer number of hours represented by a total number of seconds."""
+    return  math.floor(num/3600)
+    
+def to_secs(hours,minutes,seconds):
+    """converts hours, minutes and seconds to a total number of seconds"""
+    sec_hour = hours * 60 * 60
+    sec_minutes = minutes * 60
+    return math.floor(sec_hour + sec_minutes + seconds)
 
 def days_in_month(name):
     """takes a month name and returns the number of days in that month"""
