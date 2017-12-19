@@ -1,16 +1,21 @@
 # Class-work
-Big Picture
+## Big Picture
+
 The big pitcure of the project. Ultimately what this could be.
 
-First Round
+## First Round
+
 What I hoped to accomplish on the first round in about 2 weeks.
 
-Test Plan for 1st round
+## Test Plan for 1st round
+
 Detailed tests for test user to follow, and/or function that can be unit tested
 
 
-Reflections and revisions
+## Reflections and revisions
+
 How did it go? Do you have changes to the big picture?
 
-Next steps
+## Next steps
+
 What do I hope to accomplish in the next round?  
