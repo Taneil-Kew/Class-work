@@ -9,7 +9,10 @@ What I hoped to accomplish on the first round in about 2 weeks.
 
 ## Test Plan for 1st round
 
-Detailed tests for test user to follow, and/or function that can be unit tested
+Detailed tests for test user to follow, and/or function that can be unit tested.  For example:
+>The user is prompted to enter an English phrase. 
+>User enters "Hello". 
+>The program prints "Nihao"
 
 
 ## Reflections and revisions
