@@ -1,7 +1,7 @@
 # Class-work
 ## Big Picture
 
-The big pitcure of the project. Ultimately what this could be.
+The big picture of the project. Ultimately what this could be.
 
 ## First Round
 
