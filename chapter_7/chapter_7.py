@@ -37,7 +37,6 @@ def test_suite():
     test(is_prime(11))
     test(not is_prime(35))
     test(is_prime(19911121))
-    test(is_prime(19701013))
 
 xs=[1,-3,2,4,14,23,34,42,-57]
 names = ["Gen","Kayla","Justis","Leo","maikel","Tian","Owen","Mikki","Steph","Annie"]
@@ -112,13 +111,15 @@ def sam(names):
 
 def sqrt(n):
     """Ex 7:Newtons square root function -"""
-    approx = n/2.0     # Start with some or other guess at the answer
+    approx = n/2
+
     while True:
-        better = (approx + n/approx)/2.0
-        print("better",better)
-        if abs(approx - better) < 0.001:
+        better = (approx + n/approx)/2
+        if abs(approx - better) < .0001:
             return better
+        print(better)
         approx = better
+    
 
 
 print("sqrt",sqrt(25.0))
@@ -130,7 +131,6 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-    
 
-
+#print(is_prime(11))
 test_suite()

@@ -66,7 +66,9 @@ def test_suite():
     """ Run the suite of tests for code in this module (this file).
     """
     print("tests for turn clockwise")
-    #test(turn_clockwise("N") == "E")
+    test(checkdeath(-1) == True)
+    test(checkdeath(20) == False)
+    
 
 
 elf = {"li":80,"str":76,"sp":85,"g":0}
@@ -75,7 +77,7 @@ goldpot = 200
 bracelet = 10
 
 
-def fork():
+def fork(choice):
     """ the fork """
     choice = input("You are at a fork. Do you go right or left?")
     if choice == "left":
@@ -142,5 +144,5 @@ def checkdeath(life):
     
     
     
-fork()    
-    
+#fork()    
+test_suite()  
