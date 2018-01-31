@@ -29,5 +29,5 @@ def find(strng, ch):
 
 test(find("Compsci", "p") == 1)
 test(find("Compsci", "C") == 0)
-test(find("Compsci", "i") == 6)
+test(find("Compscii", "i") == 2)
 test(find("Compsci", "x") == -1)
