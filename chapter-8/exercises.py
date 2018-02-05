@@ -14,20 +14,11 @@ def test(did_pass):
 
 
 
-def find(strng, ch):
-    """
-      Find and return the index of ch in strng.
-      Return -1 if ch does not occur in strng.
-    """
-    ix = 0
-    count = 0
-    while ix < len(strng):
-        if strng[ix] == ch:
-            count += 1
-        ix += 1
-    return count
+ss = "Python strings have some interesting methods."
 
-test(find("Compsci", "p") == 1)
-test(find("Compsci", "C") == 0)
-test(find("Compscii", "i") == 2 )
-test(find("Compsci", "x") == -1)
+print(ss.find("s",8,16))
+test(ss.find("s") == 7)
+test(ss.find("s", 7) == 7)
+test(ss.find("s", 8) == 13)
+test(ss.find("s", 8, 13) == -1)
+test(ss.find(".") == len(ss)-1)

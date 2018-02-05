@@ -11,21 +11,18 @@ def test(did_pass):
         msg = ("Test at line {0} FAILED.".format(linenum))
     print(msg)
 
-
-def find(strng, ch):
-    """
-      Find and return the index of ch in strng.
-      Return -1 if ch does not occur in strng.
-    """
-    count = 0
-    while count < len(strng):
-        tempvar = strng[count]
-        if strng[count] == ch:
-            return count
-        count += 1
+def find2(strng, ch, start=0):
+    ix = start
+    while ix < len(strng):
+        if strng[ix] == ch:
+            return ix
+        ix += 1
     return -1
 
-test(find("Compsci", "p") == 3)
-test(find("Compsci", "C") == 0)
-test(find("Compsci", "i") == 6)
-test(find("Compsci", "x") == -1)
+print("find2 ",find2("apple","a" ))
+ss = "Python strings  some interesting methods."
+if(ss.find("some",77))>=0:
+    print("have is in the string")
+else:
+    print("no have")
+print(ss.find("have"))
