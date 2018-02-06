@@ -11,26 +11,14 @@ def test(did_pass):
         msg = ("Test at line {0} FAILED.".format(linenum))
     print(msg)
 
-#punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+def count_letters(string,ltr):
+    count = 0
+    repeats =0
+    while repeats < len(string):
+        str_index = string.find(ltr,repeats, repeats+1)
+        if string.find(ltr,repeats, repeats+1)>=0:
+            count+=1
+        repeats +=1
+     return count
 
-def remove_punctuation(s):
-    s_sans_punct = ""
-    for letter in s:
-        if letter not in string.punctuation:
-            s_sans_punct += letter
-    return s_sans_punct
-
-my_story = """
-Pythons are constrictors, which means that they will 'squeeze' the life
-out of their prey. They coil themselves around their prey and with
-each breath the creature takes the snake will squeeze a little tighter
-until they stop breathing completely. Once the heart stops the prey
-is swallowed whole. The entire animal is digested in the snake's
-stomach except for fur or feathers. What do you think happens to the fur,
-feathers, beaks, and eggshells? The 'extra stuff' gets passed out as ---
-you guessed it --- snake POOP! """
-
-str='Well, I never did!", sa<id >Alice.'
-
-words=remove_punctuation(my_story).split()
-print(words)
+print(count_letters("bananaa","b"))
