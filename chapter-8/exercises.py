@@ -89,4 +89,48 @@ Cry 'God for Harry, England, and Saint George!'
 """
 #print(analyze(speech))
 
+#Problem 7
 
+
+def reverse(word):
+    reversed = ""
+    for i in range(len(word) -1, -1, -1):
+        reversed += word[i]
+    return reversed
+
+""""
+test(reverse("happy") == "yppah")
+test(reverse("Python") == "nohtyP")
+test(reverse("") == "")
+test(reverse("a") == "a")
+"""
+#Problem 9
+
+""""
+def remove_letter(char,text):
+    charremovedtext = ""
+    for letter in text:
+        if letter != char:
+            charremovedtext += letter
+    return charremovedtext
+"""
+
+
+#Problem 9
+def remove_letter(letter, word):
+    count = 0
+    new_word = ""
+    for i in word:
+        if i != letter:
+            new_word += word[count:count+1]
+        count += 1
+    return new_word
+
+print("remive_letter",remove_letter("a","banana"))
+
+test(remove_letter("a", "apple") == "pple")
+test(remove_letter("a", "banana") == "bnn")
+test(remove_letter("z", "banana") == "banana")
+test(remove_letter("i", "Mississippi") == "Msssspp")
+test(remove_letter("b", "") == "")
+test(remove_letter("b", "c") == "c")
