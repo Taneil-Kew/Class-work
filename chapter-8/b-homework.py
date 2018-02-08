@@ -90,9 +90,24 @@ Follow your spirit, and upon this charge
 Cry 'God for Harry, England, and Saint George!'
 """
 #print(analyze(speech))
-
+# 6
 layout="{0:>4}{1:>4}{2:>4}{3:>4}{4:>4}{5:>4}{6:>4}{7:>4}{8:>4}{9:>4}{10:>4}{11:>4}"
 print("    ",layout.format('1','2','3','4','5','6','7','8','9','10','11','12'))
 print("  :--------------------------------------------------")
 for i in range(1, 13):
     print("{0:>2}:".format(i), "",layout.format(i,  i*2,  i*3,  i*4,  i*5,  i*6,  i*7,  i*8,  i*9,  i*10,  i*11,  i*12))
+#7
+def reverse2(word):
+    word2=word[::-1]
+    return word2
+
+def reverse(word):
+    reversed = ""
+    for i in range(len(word)-1, -1, -1):
+        reversed += word[i]
+    return reversed
+
+test(reverse("happy") == "yppah")
+test(reverse("Python") == "nohtyP")
+test(reverse("") == "")
+test(reverse("a") == "a")
