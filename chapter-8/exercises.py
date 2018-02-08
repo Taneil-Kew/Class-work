@@ -115,7 +115,7 @@ def remove_letter(char,text):
     return charremovedtext
 """
 
-
+#
 #Problem 9 another way
 def remove_letter(letter, word):
     count = 0
