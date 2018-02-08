@@ -104,7 +104,7 @@ test(reverse("Python") == "nohtyP")
 test(reverse("") == "")
 test(reverse("a") == "a")
 """
-#Problem 9
+#Problem 9 one way
 
 """"
 def remove_letter(char,text):
@@ -116,7 +116,7 @@ def remove_letter(char,text):
 """
 
 
-#Problem 9
+#Problem 9 another way
 def remove_letter(letter, word):
     count = 0
     new_word = ""
@@ -125,7 +125,7 @@ def remove_letter(letter, word):
             new_word += word[count:count+1]
         count += 1
     return new_word
-
+""""
 print("remive_letter",remove_letter("a","banana"))
 
 test(remove_letter("a", "apple") == "pple")
@@ -134,3 +134,13 @@ test(remove_letter("z", "banana") == "banana")
 test(remove_letter("i", "Mississippi") == "Msssspp")
 test(remove_letter("b", "") == "")
 test(remove_letter("b", "c") == "c")
+"""
+#ex 5
+
+
+layout = "{0:>4}{1:>6}{2:>6}{3:>8}{4:>10}{5:>10}{6:>10}{7:>10}{8:>10}{9:>10}{10:>10}{11:>10}"
+
+print("\t",layout.format("i", "i*2", "i*3", "i*4", "i*5", "i*6","i*7","i*8","i*9","i*10","i*11","i*12"))
+print("   :----------------------------------------------------------------------------------------------------------")
+for i in range(1, 13):
+    print("{0:>3}:".format(i),layout.format(i, i*2, i*3, i*4, i*5, i*6,i*7,i*8,i*9,i*10,i*11,i*12))
