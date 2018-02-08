@@ -10,7 +10,8 @@ def test(did_pass):
     else:
         msg = ("Test at line {0} FAILED.".format(linenum))
     print(msg)
-"""
+'''
+#ex 3
 def count_letters(string,ltr):
     count = 0
     repeats =0
@@ -20,9 +21,21 @@ def count_letters(string,ltr):
             count+=1
         repeats += 1
      return count
-"""
-#print(count_letters("bananaa","b"))
+print(count_letters("bananaa","b"))
+'''
 
+#ex 4
+def count_letters(word,ltr):
+    count = 0
+    repeats=0
+    while repeats < len(word):
+        str_index = word.find(ltr,repeats,repeats+1)
+        if str_index >= 0:
+            count +=1
+        repeats +=1
+
+    return count
+print(count_letters("banana","a"))
 #ex 5
 def analyze(str):
     s_without_punct = ""
@@ -74,4 +87,6 @@ Straining upon the start. The game's afoot:
 Follow your spirit, and upon this charge
 Cry 'God for Harry, England, and Saint George!'
 """
-print(analyze(speech))
+#print(analyze(speech))
+
+
