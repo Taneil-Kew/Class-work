@@ -1,30 +1,50 @@
-import sys, pygame
+import sys, pygame, random
 pygame.init()
 
 size = width, height = 800, 600
-
-#width, height  = 800, 600
-#size = width, height
+ballnum =50
 
 
-speed = [1, 1]
 black = 0, 0, 0
 
 screen = pygame.display.set_mode(size)
+balls=[]
+speeds=[]
+ball = pygame.image.load("intro_ball.gif")
 
 
-ball = pygame.image.load("intro_ball.gif ")
-ballrect = ball.get_rect()
 
-while 1:
+
+
+for i in range(ballnum):
+
+    ballrect = ball.get_rect()
+    ballrect.left = random.randrange(0,width-100)
+    ballrect.top = random.randrange(0,height-100)
+    balls.append(ballrect)
+    speed = [random.randrange(-1,2,2),random.randrange(-1,2,2)]
+    speeds.append(speed)
+
+while True:
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
-    ballrect = ballrect.move(speed)
-    if ballrect.left < 0 or ballrect.right > width:
-        speed[0] = -speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
-        speed[1] = -speed[1]
 
     screen.fill(black)
-    screen.blit(ball, ballrect)
+    for i in range(ballnum):
+        speed = speeds[i]
+        balls[i] = balls[i].move(speed)
+
+        if balls[i].left < 0 or balls[i].right > width:
+            speed[0] = -speed[0]
+        if balls[i].top < 0 or balls[i].bottom > height:
+            speed[1] = -speed[1]
+
+        speeds[i] = speed
+
+        screen.blit(ball, balls[i])
     pygame.display.flip()
+
+
+
+
