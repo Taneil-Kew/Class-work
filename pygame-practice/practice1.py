@@ -10,6 +10,7 @@ black = 0, 0, 0
 screen = pygame.display.set_mode(size)
 balls=[]
 speeds=[]
+
 ball = pygame.image.load("intro_ball.gif")
 
 
@@ -44,7 +45,6 @@ while True:
 
         screen.blit(ball, balls[i])
     pygame.display.flip()
-
 
 
 
