@@ -2,11 +2,12 @@ import pygame
 import time
 import random
 
-
 pygame.init()
-#pygame.mixer.pre_init(44100, 16, 2, 4096)  # frequency, size, channels, buffersize
 
-pygame.mixer.init()
+#############
+crash_sound = pygame.mixer.Sound("boom.wav")
+#############
+
 display_width = 800
 display_height = 600
 
@@ -24,14 +25,8 @@ block_color = (53, 115, 255)
 car_width = 73
 
 gameDisplay = pygame.display.set_mode((display_width, display_height))
-#############
-#cs=pygame.mixer.Sound
-crash_sound = pygame.mixer.Sound("boom.wav")
-#############
 pygame.display.set_caption('A bit Racey')
 clock = pygame.time.Clock()
-
-
 
 carImg = pygame.image.load('racecar.png')
 gameIcon = pygame.image.load('carIcon.png')
@@ -64,9 +59,8 @@ def text_objects(text, font):
 
 def crash():
     ####################################
-   ## pygame.mixer.music.play(-1)
     pygame.mixer.Sound.play(crash_sound)
-  # $ pygame.mixer.music.stop()
+    pygame.mixer.music.stop()
     ####################################
     largeText = pygame.font.SysFont("comicsansms", 115)
     TextSurf, TextRect = text_objects("You Crashed", largeText)
