@@ -3,7 +3,7 @@ from unit_tester import test
 def cleanword(word):
     return ''.join(e for e in word if e.isalnum())
 
-test(cleanword("what?") == "what")
+test(cleanword("what?") == "what!")
 test(cleanword("'now!'") == "now")
 test(cleanword("?+='w-o-r-d!,@$()'") ==  "word")
 
