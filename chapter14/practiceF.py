@@ -1,4 +1,5 @@
 from unit_tester import test
+import time
 
 friends = ["Joe", "Zoe", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]
 
@@ -43,6 +44,28 @@ def text_to_words(the_text):
     cleaned_text = the_text.translate(my_substitutions)
     wds = cleaned_text.split()
     return wds
+
+def get_words_in_book(filename):
+    """ Read a book from filename, and return a list of its words. """
+    f = open(filename, "r")
+    content = f.read()
+    f.close()
+    wds = text_to_words(content)
+    return wds
+
+book_words = get_words_in_book("alice_in_wonderland.txt")
+print("There are {0} words in the book, the first 100 are\n{1}".
+           format(len(book_words), book_words[:100]))
+
+#missing_words = find_unknown_words(bigger_vocab, book_words)
+
+t0 = time.clock()
+missing_words = find_unknown_words(bigger_vocab, book_words)
+t1 = time.clock()
+print("There are {0} unknown words.".format(len(missing_words)))
+print("That took {0:.4f} seconds.".format(t1-t0))
+
+print(missing_words)
 test(search_linear(friends, "Zoe") == 1)
 test(search_linear(friends, "Joe") == 0)
 test(search_linear(friends, "Paris") == 6)
