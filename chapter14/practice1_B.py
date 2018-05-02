@@ -20,7 +20,7 @@ def find_unknown_words(vocab, wds):
     """ Return a list of words in wds that do not occur in vocab """
     result = []
     for w in wds:
-        if (search_linear(vocab, w) < 0):
+        if (search_binary(vocab, w) < 0):
             result.append(w)
     return result
 
@@ -56,6 +56,31 @@ def get_words_in_book(filename):
     wds = text_to_words(content)
     return wds
 
+def search_binary(xs, target):
+    """ Find and return the index of key in sequence xs """
+    lb = 0
+    ub = len(xs)
+    while True:
+        if lb == ub:   # If region of interest (ROI) becomes empty
+           return -1
+
+        # Next probe should be in the middle of the ROI
+        mid_index = (lb + ub) // 2
+
+        # Fetch the item at that position
+        item_at_mid = xs[mid_index]
+
+        # print("ROI[{0}:{1}](size={2}), probed='{3}', target='{4}'"
+        #       .format(lb, ub, ub-lb, item_at_mid, target))
+
+        # How does the probed item compare to the target?
+        if item_at_mid == target:
+            return mid_index      # Found it!
+        if item_at_mid < target:
+            lb = mid_index + 1    # Use upper half of ROI next time
+        else:
+            ub = mid_index        # Use lower half of ROI next time
+
 
 bigger_vocab = load_words_from_file("vocab.txt")
 print("There are {0} words in the vocab, starting with\n {1} "
@@ -66,10 +91,23 @@ print("There are {0} words in the book, the first 100 are\n{1}".
            format(len(book_words), book_words[:100]))
 
 
+# t0 = time.clock()
+# missing_words = find_unknown_words(bigger_vocab, book_words)
+# t1 = time.clock()
+# print("There are {0} unknown words.".format(len(missing_words)))
+# print("That took {0:.4f} seconds.".format(t1-t0))
+
+xs = [2,3,5,7,11,13,17,23,29,31,37,43,47,53]
+test(search_binary(xs, 20) == -1)
+test(search_binary(xs, 99) == -1)
+test(search_binary(xs, 1) == -1)
+for (i, v) in enumerate(xs):
+    test(search_binary(xs, v) == i)
+
 t0 = time.clock()
 missing_words = find_unknown_words(bigger_vocab, book_words)
 t1 = time.clock()
 print("There are {0} unknown words.".format(len(missing_words)))
 print("That took {0:.4f} seconds.".format(t1-t0))
-#
+
 
